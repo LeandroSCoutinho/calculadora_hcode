@@ -1,35 +1,63 @@
 class CalcController {
     
     constructor(){
-
-        this._displayCalc = "0";
+        this.locale = "pt-BR";
+        this._displayCalEl = document.querySelector("#display");
+        this._dateEl = document.querySelector("#data");
+        this._timeEl = document.querySelector("#hora");
         this.currentDate;
         this.initialize();
+        
     }
         initialize(){
-            let displayCalEL = document.querySelector("#display");
-            let dateEl = document.querySelector("#data");
-            let timeEl = document.querySelector("#hora");
 
-            displayCalEL.innerHTML = "4882";
-            dateEl.innerHTML = "13/09/202";
-            timeEl.innerHTML = "22:37";
+            this.setDisplayDateTime();
+
+            setInterval(()=>{
+            
+                this.setDisplayDateTime();
+ 
+            },1000);
+            
+        }
+
+        setDisplayDateTime(){
+
+            this.displayDate = this.currentDate.toLocaleDateString(this.locale);
+            this.displayTime = this.currentDate.toLocaleTimeString(this.locale);
+
+        }
+
+        get displayDate(){
+            return this._dateEl.innerHTML;
+        }
+
+        set displayDate(date){
+            this._dateEl.innerHTML = date;
+        }
+
+        get displayTime(){
+            return this._timeEl.innerHTML;
+        }
+
+        set displayTime(time){
+            this._timeEl.innerHTML = time; 
         }
 
         get displayCalc(){
-            return this._displayCalc;
+            return this._displayCalcEl.innerHTML;
         }
 
-        set displayCalc(valor){
-            this._displayCalc = valor; 
+        set displayCalc(value){
+            this._displayCalEl.innerHTML = value; 
         }
 
-        get dataAtual(){
-            return this.currentDate;
+        get currentDate(){
+            return new Date();
 ;
         }
 
-        set dataAtual(data){
-            this.currentDate = data;
+        set currentDate(date){
+            this._currentDate = date;
         }
 }
