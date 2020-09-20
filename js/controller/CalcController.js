@@ -1,6 +1,7 @@
 class CalcController {
     
     constructor(){
+        this._operation = [];
         this.locale = "pt-BR";
         this._displayCalEl = document.querySelector("#display");
         this._dateEl = document.querySelector("#data");
@@ -33,6 +34,72 @@ class CalcController {
                             
         }
 
+        clearAll(){
+            this._operation = [];
+        }
+
+        clearEntry(){
+             this._operation.pop();
+        }
+
+        setError(){
+            this.displayCalc = "error";
+        }
+
+        addOperator(value){
+            this._operation.push(value); 
+            console.log(this._operation);
+        }
+
+        execBtn(value){
+
+            switch(value){
+                case 'ac':
+                    this.clearAll();
+                    break;
+                case 'ce':
+                    this.clearEntry();
+                    break;
+                case 'soma':
+                    
+                    break;
+                case 'soma':
+                    
+                    break;
+                case 'subtracao':
+                    
+                    break;
+                case 'multiplicacao':
+                    
+                    break;
+                case 'divisao':
+                    
+                    break;   
+                case 'porcento':
+                    
+                        break;    
+                case 'igual':
+                    
+                    break;
+                default:
+                    this.setError();
+                    break;
+                
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':    
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    this.addOperator(parseInt(value));
+                    break;
+            }
+        }
+
         initButtonsEvents(){
             let buttons = document.querySelectorAll("#buttons > g, #parts > g");
 
@@ -40,7 +107,9 @@ class CalcController {
 
                 this.addEventListenerAll(btn,"click drag", e=>{
 
-                    console.log(btn.className.baseVal.replace("btn-",""))
+                    let textBtn = btn.className.baseVal.replace("btn-","");
+
+                    this.execBtn(textBtn)
 
                 });
 
@@ -61,6 +130,8 @@ class CalcController {
             this.displayTime = this.currentDate.toLocaleTimeString(this.locale);
 
         }
+
+
 
         get displayDate(){
             return this._dateEl.innerHTML;
