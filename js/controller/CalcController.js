@@ -12,6 +12,7 @@ class CalcController {
         this.currentDate;
         this.initialize();
         this.initButtonsEvents();
+        this.initKeyBoard();
         
     }
 
@@ -29,6 +30,50 @@ class CalcController {
             
         }
 
+        initKeyBoard(){
+            document.addEventListener('keyup', e =>{
+
+            switch(e.key){
+                case 'Escape':
+                    this.clearAll();
+                    break;
+                case 'Backspace':
+                    this.clearEntry();
+                    break;
+                case '+':
+                case '-':
+                case '*':
+                case '/':
+                case '%':
+                    this.addOperator(e.key);    
+                    break;
+                case '=':
+                case 'Enter':
+                    this.calc();
+                    break;
+                case '.':
+                case ',':
+                    this.addDot();
+                    break;
+                
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':    
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    this.addOperator(parseInt(e.key));
+                    break;
+            }
+
+
+            })
+        }
+
         addEventListenerAll(element, events,fn){
 
             events.split(' ').forEach(event=>{
@@ -41,7 +86,7 @@ class CalcController {
 
         clearAll(){
             this._operation = [];
-            this._lasNumber = 0;
+            this._lasNumber = '';
             this._lastOperator = '';
 
             this.setLastNumberToDisplay();
@@ -248,10 +293,7 @@ class CalcController {
                 case 'ponto':
                     this.addDot();
                     break;
-                default:
-                    this.setError();
-                    break;
-                
+                    
                 case '0':
                 case '1':
                 case '2':
@@ -264,6 +306,10 @@ class CalcController {
                 case '9':
                     this.addOperator(parseInt(value));
                     break;
+                default:
+                    this.setError();
+                    break;
+
             }
         }
 
