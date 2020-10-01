@@ -58,7 +58,7 @@ class CalcController {
             this.setLastNumberToDisplay();
             this.pasteFromClipboard();
 
-            document.querySelectorAll('btn-ac').forEach(btn =>{
+            document.querySelectorAll('.btn-ac').forEach(btn =>{
 
                 btn.addEventListener('dblclick', e=>{
 
@@ -71,7 +71,7 @@ class CalcController {
         toggleAudio(){
 
             this._audioOnOff = !this._audioOnOff;
-            console.log(this._audioOnOff);
+            
 
         }
 
@@ -431,6 +431,11 @@ class CalcController {
         }
 
         set displayCalc(value){
+
+            if(value.toString().length > 10){
+                this.setError();
+                return false;
+            }
             this._displayCalcEl.innerHTML = value; 
         }
 
