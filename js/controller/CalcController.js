@@ -151,7 +151,12 @@ class CalcController {
             this._lasNumber = '';
             this._lastOperator = '';
 
+            
+
+            console.log(this.lastOperation, this._lasNumber, this._lastOperator);
             this.setLastNumberToDisplay();
+
+            this.displayCalc = 0;
         }
 
         clearEntry(){
@@ -258,8 +263,7 @@ class CalcController {
                     lastItem = this._operation[i];
                     break;
                 }
-
-                
+   
             }
             
             if(!lastItem){
