@@ -15,24 +15,7 @@ JavaScript
 MVC (Model-View-Controller)  
 POO (Programação Orientada a Objetos)  
 Estrutura do Projeto  
-
-## A estrutura do projeto segue o padrão de projetos MVC e é organizada da seguinte maneira:
-
-```bash
-|_ public/
-|  |_ index.html
-|  |_ styles/
-|  |  |_ main.css
-|_ src/
-|  |_ controllers/
-|  |  |_ controller.js
-|  |_ models/
-|  |  |_ model.js
-|  |_ views/
-|  |  |_ view.js
-|_ README.md
-```
-A pasta public/ contém os arquivos HTML e CSS da aplicação. A pasta src/ contém os arquivos JavaScript para os controllers, models e views.  
+  
 
 # Como Executar o Projeto
 Para executar o projeto, basta abrir o arquivo index.html na pasta public/ em um navegador web.
