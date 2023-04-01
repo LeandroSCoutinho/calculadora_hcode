@@ -21,7 +21,9 @@ Estrutura do Projeto
 Para executar o projeto, basta abrir o arquivo index.html na pasta public/ em um navegador web.
 
 # Funcionamento da Aplicação
-A aplicação é uma simples lista de tarefas, onde o usuário pode adicionar e remover tarefas. O padrão MVC foi aplicado para separar as responsabilidades de cada parte da aplicação.  
+A aplicação é uma simples calculadora, onde o usuário pode efetuar as quatro operações básicas da matemática.  
+
+O padrão MVC foi aplicado para separar as responsabilidades de cada parte da aplicação.  
 
 
 Model: responsável pela manipulação de dados da aplicação.  
